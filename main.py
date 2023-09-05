@@ -16,15 +16,15 @@
 #>>> is_palindrome("hello")
 #False
 # One approach is we can take our string and print values using [] to get the index.
-original_string = "racecar"
+# original_string = "racecar"
 # this should printout r
-print(original_string[0])
+# print(original_string[0])
 # we then can compare if the first value and the next value are the same usng the comparison operator
-print(original_string[0] == original_string[6])  # >>> True
+# print(original_string[0] == original_string[6])  # >>> True
 # we can do this for every single value until the beginning and ending values meet each other
-print(original_string[1] == original_string[5]) # >>> True
-print(original_string[2] == original_string[4]) # >>> True
-print(original_string[3] == original_string[3]) # >>> True
+# print(original_string[1] == original_string[5]) # >>> True
+# print(original_string[2] == original_string[4]) # >>> True
+# print(original_string[3] == original_string[3]) # >>> True
 
 # We have walked through our approach to solving this problem we will now take a more dynamic approach
 # that can be scaled to strings of different lengths without us having to manually compare each value.
@@ -68,16 +68,16 @@ def test_palindrome(input_string, expected_result):
         return "Test Failed ❌"
 
 # Check if a valid palindrome is identified correctly
-print(test_palindrome("racecar", True))  # Should print "Test Passed ✅"
+# print(test_palindrome("racecar", True))  # Should print "Test Passed ✅"
 
 # Check if a valid palindrome with spaces is identified correctly
-print(test_palindrome("A man a plan a canal Panama", True))  # Should print "Test Passed ✅"
+# print(test_palindrome("A man a plan a canal Panama", True))  # Should print "Test Passed ✅"
 
 # Check if a non-palindrome is identified correctly
-print(test_palindrome("hello", False))  # Should print "Test Passed ✅"
+# print(test_palindrome("hello", False))  # Should print "Test Passed ✅"
 
 # Check if invalid input raises a ValueError
-print(test_palindrome(123, False))  # Should print raise ValueError("Input must be a string") ValueError: Input must be a string
+# print(test_palindrome(123, False))  # Should print raise ValueError("Input must be a string") ValueError: Input must be a string
 
 
 # def test_add(num1, num2, expected_result):
