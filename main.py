@@ -90,14 +90,30 @@ def test_palindrome(input_string, expected_result):
     else:
         return "Test Failed ❌"
 
-# Check if a valid palindrome is identified correctly
-print(test_palindrome("racecar", True))  # Should print "Test Passed ✅"
+# # Check if a valid palindrome is identified correctly
+# print(test_palindrome("racecar", True))  # Should print "Test Passed ✅"
 
-# Check if a valid palindrome with spaces is identified correctly
-print(test_palindrome("A man a plan a canal Panama", True))  # Should print "Test Passed ✅"
+# # Check if a valid palindrome with spaces is identified correctly
+# print(test_palindrome("A man a plan a canal Panama", True))  # Should print "Test Passed ✅"
 
-# Check if a non-palindrome is identified correctly
-print(test_palindrome("hello", False))  # Should print "Test Passed ✅"
+# # Check if a non-palindrome is identified correctly
+# print(test_palindrome("hello", False))  # Should print "Test Passed ✅"
 
-# Check if invalid input raises a ValueError
-print(test_palindrome(123, False))  # Should print raise ValueError("Input must be a string") ValueError: Input must be a string
+# # Check if invalid input raises a ValueError
+# print(test_palindrome(123, False))  # Should print raise ValueError("Input must be a string") ValueError: Input must be a string
+
+
+def test_add():
+    # Test case 1: Adding two positive numbers
+    result = add(2, 3)
+    expected = 5
+    if result == expected:
+        print("Test Passed ✅")
+    else:
+        print("Test Failed ❌")
+
+# Define the add function
+def add(a, b):
+    return a + b
+
+test_add()

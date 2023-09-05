@@ -56,6 +56,65 @@ When writing tests, consider the following aspects:
 
 In summary, Test-Driven Development (TDD) is a critical practice in software development that ensures correctness, guides development, catches bugs early, encourages refactoring, and supports collaboration in large teams. To achieve maximum test coverage, focus on testing both positive and negative cases, covering all code paths, using code coverage tools, and regularly updating tests to reflect code changes.
 
+## Test-Driven Development (TDD) in Action
+
+### Section 1: Writing the Initial Test
+In this section, we'll apply the principles of Test-Driven Development (TDD) to create a simple function for adding two numbers. We'll start by writing the initial test.
+**Step 1: Write the Initial Test**
+```python3
+# Define a test function for adding two numbers with specified inputs and expected result.
+def test_add():
+    # Test case 1: Adding two positive numbers by calling the add function with 2 and 3 as parameters
+    result = add(2, 3)
+    # the expected result of invoking our function should be 5 when adding 2 + 3
+    expected = 5
+    # use the comparison operator to check if our result is equal to expcted
+    if result == expected:
+    # if true our test passes
+        print("Test Passed ✅")
+    else:
+    # else it will fail
+        print("Test Failed ❌")
+# invoking our test_add function
+test_add()
+```
+<br>
+In this step, we begin by writing the first test case for our add function. We specify that adding 2 and 3 should result in 5. Running this test initially will fail because there is no add function implemented yet.<br>
+<br>
+
+![add_fail](https://user-images.githubusercontent.com/24584526/265627656-35a2c970-b67c-4528-90e1-b54e34c15e1c.png)
+<br><br>
+**Write Our Code To Pass The Test**<br>
+We will now include our **add** function
+
+```python3
+def test_add():
+    # Test case 1: Adding two positive numbers
+    result = add(2, 3)
+    expected = 5
+    if result == expected:
+        print("Test Passed ✅")
+    else:
+        print("Test Failed ❌")
+
+# Define the add function
+def add(a, b):
+    return a + b
+
+test_add()
+```
+**Run Test**
+Now we have our **add** function that should pass our test let's give it a try in the terminal run:
+```python3
+python3 -m main.py
+```
+We should now see that our test is passing
+
+![test_pass](https://user-images.githubusercontent.com/24584526/265629310-4222074c-8008-4abb-8cb1-2d2e2ab16d0c.png)
+
+
+
+
 ## Your First TDD Assignment: is_palindrome
 
 ### Task:
