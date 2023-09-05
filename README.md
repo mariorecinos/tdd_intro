@@ -212,7 +212,7 @@ print(test_palindrome("A man a plan a canal Panama", True))  # Should print "Tes
 print(test_palindrome("hello", False))  # Should print "Test Passed ✅"
 
 # Check if invalid input raises a ValueError
-print(test_palindrome(123, None))  # Should print "Test Failed ❌"
+print(test_palindrome(123, None))  #Should print raise ValueError("Input must be a string") ValueError: Input must be a string
 ```
 
 Let's try to run our test in the terminal run the command:
@@ -276,3 +276,66 @@ print(test_palindrome("hello", False))  # Should print "Test Passed ✅"
 print(test_palindrome(123, None))  # Should print "Test Failed ❌"
 
 ```
+
+## Planning the Solution:
+Before we start writing the code, let's plan our approach to solving the **is_palindrome** problem. The goal of this function is to check if a given input string is a palindrome. Here's what we need to consider:
+
+* **Parameters:** The function should take one parameter, ***input_string***, which is the string to be checked for palindrome.
+* **Return:** The function should return a boolean value (***True*** if the input string is a palindrome, ***False*** otherwise).
+* Exception Handling: We should raise a ValueError if the input is not a string.
+* Palindrome Definition: A palindrome is a sequence of characters that reads the same forward and backward, ignoring spaces, and considering letters in a case-insensitive manner.
+
+### One approach to solve this problem is by using the concept of indexing and comparison. Here's how it works:
+
+* We can access individual characters in a string using indexing. For example, for the string "racecar," original_string[0] would return 'r'.
+* We can compare characters at different positions in the string using the equality operator. For instance, original_string[0] == original_string[6] would return True because both 'r' characters are equal.
+* We can apply this comparison technique to every pair of characters in the string, starting from the beginning and end and moving toward the center.
+* If all character pairs are equal during this comparison process, the string is a palindrome.  If they are not equal then we will return false
+
+```python3
+# One approach is we can take our string and print values using [] to get the index.
+original_string = "racecar"
+# this should printout r
+print(original_string[0])
+# we then can compare if the first value and the next value are the same usng the comparison operator
+print(original_string[0] == original_string[6])  # >>> True
+# we can do this for every single value until the beginning and ending values meet each other
+print(original_string[1] == original_string[5]) # >>> True
+print(original_string[2] == original_string[4]) # >>> True
+print(original_string[3] == original_string[3]) # >>> True
+
+# We have walked through our approach to solving this problem we will now take a more dynamic approach
+# that can be scaled to strings of different lengths without us having to manually compare each value.
+```
+<details>
+
+<summary>is_palindrome Completed Code</summary>
+
+  ```python3
+  def is_palindrome(input_string):
+  # Check if input_string is a string using isInstance method built in python https://www.w3schools.com/python/ref_func_isinstance.asp
+    if not isinstance(input_string, str):
+        raise ValueError("Input must be a string")
+    # Remove spaces and convert to lowercase
+    cleaned_string = ''.join(input_string.split()).lower()
+
+    # Initialize pointers
+    # our left pointer begins at 0 so that when we access the index of our string
+    # the value we will be entering in the [] will be our left pointer value which will start at the beginning.
+    # our right pointer will begin at the end entering the value of right pointer inside of [] will access the index of that letter value
+    # then we will compare the two values to each other if they are equal if they are the left pointer will increase by one moving the next character
+    #  while our right pointer will decrease by one moving down to the next value and the comparison will continue until left pointer is no longer less than right pointer
+    left_pointer = 0
+    right_pointer = len(cleaned_string) - 1
+
+    # Loop until pointers meet
+    while left_pointer < right_pointer:
+        if cleaned_string[left_pointer] != cleaned_string[right_pointer]:
+            return False
+        left_pointer += 1
+        right_pointer -= 1
+
+    # If the loop completes, it's a palindrome
+    return True
+  ```
+</details>
