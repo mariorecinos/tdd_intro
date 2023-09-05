@@ -282,8 +282,8 @@ Before we start writing the code, let's plan our approach to solving the **is_pa
 
 * **Parameters:** The function should take one parameter, ***input_string***, which is the string to be checked for palindrome.
 * **Return:** The function should return a boolean value (***True*** if the input string is a palindrome, ***False*** otherwise).
-* Exception Handling: We should raise a ValueError if the input is not a string.
-* Palindrome Definition: A palindrome is a sequence of characters that reads the same forward and backward, ignoring spaces, and considering letters in a case-insensitive manner.
+* **Exception Handling:** We should raise a ***ValueError*** if the input is not a string.
+* **Palindrome Definition:** A palindrome is a sequence of characters that reads the same forward and backward, ignoring spaces, and considering letters in a case-insensitive manner.
 
 ### One approach to solve this problem is by using the concept of indexing and comparison. Here's how it works:
 
