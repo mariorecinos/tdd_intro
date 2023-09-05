@@ -339,3 +339,12 @@ print(original_string[3] == original_string[3]) # >>> True
     return True
   ```
 </details>
+<br>
+
+In this code:
+* We first check if ***input_string*** is a string using the ***isinstance*** method and raise a ***ValueError*** if it's not.
+* We remove spaces from the string and convert it to lowercase to ensure a case-insensitive comparison.
+* We initialize two pointers, ***left_pointer*** and ***right_pointer***, to compare characters from the beginning and end of the cleaned string.
+* We use a ***while*** loop to continue comparing characters until the ***left_pointer*** is no longer less than the ***right_pointer***.
+* Inside the loop, we compare characters at the current positions of the pointers. If they are not equal, we return ***False***.
+* If the loop completes without returning ***False***, it means the string is a palindrome, and we return ***True***.
