@@ -103,17 +103,20 @@ def test_palindrome(input_string, expected_result):
 # print(test_palindrome(123, False))  # Should print raise ValueError("Input must be a string") ValueError: Input must be a string
 
 
-def test_add():
-    # Test case 1: Adding two positive numbers
-    result = add(2, 3)
-    expected = 5
-    if result == expected:
-        print("Test Passed ✅")
+def test_add(num1, num2, expected_result):
+    result = add(num1, num2)
+    if result == expected_result:
+        return "Test Passed ✅"
     else:
-        print("Test Failed ❌")
+        return "Test Failed ❌"
 
 # Define the add function
 def add(a, b):
     return a + b
 
-test_add()
+# Run the test cases
+print(test_add(2, 3, 5))      # Test Passed ✅
+print(test_add(5, -3, 2))     # Test Passed ✅
+print(test_add(-7, -2, -9))   # Test Passed ✅
+print(test_add(0, 8, 8))      # Test Passed ✅
+

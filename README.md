@@ -59,7 +59,7 @@ In summary, Test-Driven Development (TDD) is a critical practice in software dev
 ## Test-Driven Development (TDD) in Action
 
 ### Section 1: Writing the Initial Test
-In this section, we'll apply the principles of Test-Driven Development (TDD) to create a simple function for adding two numbers. We'll start by writing the initial test.
+In this section, we'll apply the principles of Test-Driven Development (TDD) to create a simple function for adding two numbers. We'll start by writing the initial test.<br>
 **Step 1: Write the Initial Test**
 ```python3
 # Define a test function for adding two numbers with specified inputs and expected result.
@@ -84,7 +84,7 @@ In this step, we begin by writing the first test case for our add function. We s
 
 ![add_fail](https://user-images.githubusercontent.com/24584526/265627656-35a2c970-b67c-4528-90e1-b54e34c15e1c.png)
 <br><br>
-**Write Our Code To Pass The Test**<br>
+**Step 2: Write the code**
 We will now include our **add** function
 
 ```python3
@@ -103,7 +103,7 @@ def add(a, b):
 
 test_add()
 ```
-**Run Test**
+**Step 3: Run Test**
 Now we have our **add** function that should pass our test let's give it a try in the terminal run:
 ```python3
 python3 -m main.py
@@ -112,6 +112,41 @@ We should now see that our test is passing
 
 ![test_pass](https://user-images.githubusercontent.com/24584526/265629310-4222074c-8008-4abb-8cb1-2d2e2ab16d0c.png)
 
+**Step 4: Refactor Test Code For Reusability**
+
+In this step, we refactor our testing approach to create a more reusable and structured **test_add** function. Now, this function can be called with different inputs and expected results for multiple test cases, making it easier to manage and extend our testing suite.
+
+```python3
+# Define a test function for adding two numbers with specified inputs and expected result.
+def test_add(num1, num2, expected_result):
+    # Call the 'add' function with 'num1' and 'num2' as inputs and store the result in 'result'.
+    result = add(num1, num2)
+
+    # Check if 'result' is equal to the 'expected_result'.
+    if result == expected_result:
+        # If the result matches the expected result, print a message indicating the test passed.
+        return "Test Passed ✅"
+    else:
+        # If the result does not match the expected result, print a message indicating the test failed.
+        return "Test Failed ❌"
+
+# Define the 'add' function, which takes two numbers ('a' and 'b') and returns their sum.
+def add(a, b):
+    return a + b
+
+# Example test cases using the 'test_add' function:
+print(test_add(2, 3, 5))      # Test Passed ✅
+print(test_add(5, -3, 2))     # Test Passed ✅
+print(test_add(-7, -2, -9))   # Test Passed ✅
+print(test_add(0, 8, 8))      # Test Passed ✅
+```
+**Run Our Test Again**
+Let's go ahead and run our test now running the command:
+```python3
+python3 main.py
+```
+Our test should be all passing now!<br><br>
+![all_add_pass](https://user-images.githubusercontent.com/24584526/265633878-74cffb56-f796-4f87-8853-bde5d82bfb5c.png)
 
 
 
