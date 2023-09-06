@@ -56,6 +56,34 @@ When writing tests, consider the following aspects:
 
 In summary, Test-Driven Development (TDD) is a critical practice in software development that ensures correctness, guides development, catches bugs early, encourages refactoring, and supports collaboration in large teams. To achieve maximum test coverage, focus on testing both positive and negative cases, covering all code paths, using code coverage tools, and regularly updating tests to reflect code changes.
 
+### Unit Tests vs. Integration Tests vs. Behavioral Tests
+
+When it comes to software testing, it's essential to understand the different types of tests you can perform, as they serve distinct purposes:
+
+**1. Unit Tests:**
+   - **Focus:** These tests concentrate on individual components, functions, or methods in isolation.
+   - **Purpose:** The primary goal is to ensure that each small part of your codebase works correctly on its own.
+   - **Scope:** Unit tests are narrow in scope and typically cover specific functions or classes.
+   - **Isolation:** Dependencies are often mocked or stubbed to isolate the unit under test.
+   - **Benefits:** Unit tests are fast, pinpoint issues, and make it easier to catch and fix bugs during development.
+
+**2. Integration Tests:**
+   - **Focus:** Integration tests examine how different components work together in a larger system.
+   - **Purpose:** They ensure that the interactions and collaborations between various parts of your software function correctly.
+   - **Scope:** Integration tests have a broader scope and encompass multiple units or modules.
+   - **Configuration:** They often require a specific configuration of your software, including external services or databases.
+   - **Benefits:** Integration tests help identify issues related to data flow, communication between components, and overall system behavior.
+
+**3. Behavioral Tests (End-to-End Tests):**
+   - **Focus:** Behavioral tests evaluate the behavior of your software from an end-user perspective.
+   - **Purpose:** They ensure that your application or system functions as intended when used as a whole.
+   - **Scope:** Behavioral tests encompass the entire system or a significant part of it, simulating real user interactions.
+   - **Configuration:** They often require real or realistic data and may involve interacting with external resources.
+   - **Benefits:** Behavioral tests help validate that your software meets the intended requirements and user expectations.
+
+Understanding the distinctions between these test types allows you to choose the right approach for different testing scenarios. In practice, a balanced combination of unit tests, integration tests, and behavioral tests provides comprehensive test coverage, ensuring the reliability and correctness of your software. In this current lesson we will cover unit tests.
+
+
 ## Test-Driven Development (TDD) in Action
 
 ### Section 1: Writing the Initial Test
@@ -354,5 +382,5 @@ In this code:
 </p>
 
  <br>
- 
+
 [Next: Introduction to Unittest](https://github.com/mariorecinos/tdd_intro/blob/main/unittest_introduction.md)
