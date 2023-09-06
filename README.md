@@ -325,7 +325,7 @@ Before we start writing the code, let's plan our approach to solving the **is_pa
 original_string = "racecar"
 # this should printout r
 print(original_string[0])
-# we then can compare if the first value and the next value are the same usng the comparison operator
+# we then can compare if the first value and the last value are the same usng the comparison operator
 print(original_string[0] == original_string[6])  # >>> True
 # we can do this for every single value until the beginning and ending values meet each other
 print(original_string[1] == original_string[5]) # >>> True
