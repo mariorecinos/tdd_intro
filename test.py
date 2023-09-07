@@ -3,20 +3,20 @@ from main import is_palindrome # Import your is_palindrome function from main.py
 
 class TestIsPalindrome(TestCase):
     def test_valid_palindrome(self):
-        self.assertTrue(is_palindrome("racecar"),  "Expected 'racecar' to be a palindrome")
+        self.assertTrue(is_palindrome("happy"),  "Expected 'racecar' to be a palindrome")
 
     def test_valid_palindrome_with_spaces(self):
         self.assertTrue(is_palindrome("A man a plan a canal Panama"),  "Expected 'A man a plan a canal Panama' to be a palindrome")
 
     def test_non_palindrome(self):
-        self.assertFalse(is_palindrome("hello"), "Expected 'hello' not to be a palindrome")
+        self.assertFalse(is_palindrome("racecar"), "Expected 'hello' not to be a palindrome")
 
     def test_invalid_input(self):
          # Define a function that should raise a ValueError
         def invalid_input():
-            is_palindrome(123)
+            is_palindrome("apple")
 
-        self.assertRaises(ValueError, invalid_input,"Expected ValueError for non-string input")
+        self.assertRaises(ValueError, invalid_input)
 
 if __name__ == "__main__":
     test_runner = TestRunner()
