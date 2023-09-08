@@ -300,4 +300,8 @@ This command uses the unittest test discovery mechanism to find and run the test
 <br>
 
 ![unittest_pass](https://user-images.githubusercontent.com/24584526/266599960-2b16ecc9-9b7e-4c5f-ab3d-01b43d705300.png)
+<br>
 
+<p>
+By using unittest, you can benefit from a well-established testing framework without having to build your testing infrastructure from scratch, as shown in the earlier sections. This approach provides consistency and makes it easier to collaborate with others who are familiar with standard testing practices in Python.
+</p>
