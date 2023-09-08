@@ -69,7 +69,7 @@ This TestCase class provides a comprehensive set of assertion methods that can b
 
 Take a moment to review and learn about other assertion methods and other features that can be added to TestCase, you can refer to the [unittest documentation](https://docs.python.org/3/library/unittest.html#)
 
-## 2: Create a TestRunner Class
+## 2. Create a TestRunner Class
 The TestRunner class is responsible for discovering and executing test methods within a TestCase subclass.
 
 ```python3
@@ -144,4 +144,160 @@ This is a key part of building a custom testing framework, as it allows you to a
   ```
 </details>
 
+## 3. Using The Custom Testing Framework
+
+1. Define a TestCase subclass that contains your test methods. Each test method should start with "test_."
+
+2. Implement your test methods within the TestCase subclass, using the assertion methods provided by the framework (e.g., assertTrue, assertRaises, etc.).
+
+3. Instantiate a TestRunner object and a TestCase object for your specific test suite.
+
+4. Run the tests using test_runner.run(test_case).
+
+5. Print the test results to see how many tests passed and how many failed.
+
+By following these steps, you can easily create and execute test cases for your code.
+
+<p>
+In the provided example, the TestIsPalindrome class demonstrates how to create test methods using the custom testing framework. You can replace it with your own TestCase subclass and test methods.
+</p>
+
+```python3
+# Import custom testing framework components
+from unittest_demo import TestCase, TestRunner  # Import your custom TestCase and TestRunner
+from main import is_palindrome  # Import your is_palindrome function from main.py
+
+# Define a test case class that inherits from TestCase
+class TestIsPalindrome(TestCase):
+    def test_valid_palindrome(self):
+        self.assertTrue(is_palindrome("racecarw"),  "Failing Test: Expected 'racecar' to be a palindrome")
+
+    def test_valid_palindrome_with_spaces(self):
+        self.assertTrue(is_palindrome("A man a plan a canal Panamaw"),  "Failing Test: Expected 'A man a plan a canal Panama' to be a palindrome")
+
+    def test_non_palindrome(self):
+        self.assertFalse(is_palindrome("hello"), "Failing Test: Expected 'hello' not to be a palindrome")
+
+    def test_invalid_input(self):
+         # Define a function that should raise a ValueError
+        def invalid_input():
+            is_palindrome(123)
+
+        # Use assertRaises to test if the function raises the expected exception
+        self.assertRaises(ValueError, invalid_input)
+
+# Check if the script is being run as the main program
+if __name__ == "__main__":
+    # Create an instance of the TestRunner
+    test_runner = TestRunner()
+
+    # Create an instance of the TestIsPalindrome test case
+    test_case = TestIsPalindrome()
+
+    # Run the tests in the test case using the test runner
+    test_runner.run(test_case)
+
+    # Print test results
+    print(f"Tests Passed: {test_case.passed}")
+    print(f"Tests Failed: {test_case.failed}")
+```
+
+1. Custom Testing Framework Components Import: In this section, we import the custom testing framework components you've built. These components include TestCase and TestRunner from the unittest_demo module. Additionally, we import the is_palindrome function from a module named main.py, which presumably contains your application code to be tested.
+
+2. Define Test Case Class: We define a custom test case class called TestIsPalindrome that inherits from your TestCase class. This custom test case class contains individual test methods, each beginning with the prefix "test_". These test methods contain various assertions to test different aspects of the is_palindrome function.
+
+3. Main Program Check: The if __name__ == "__main__": block ensures that the code within it is only executed if the script is run as the main program (not when it's imported as a module).
+
+4. Test Runner and Test Case Creation: We create instances of the TestRunner and TestIsPalindrome classes. The TestRunner is responsible for executing the test methods in the test case.
+
+5. Run Tests: We use test_runner.run(test_case) to run all the test methods within the TestIsPalindrome test case.
+
+6. Print Test Results: Finally, we print the number of tests that passed and failed to provide feedback to the user.
+
+Now we can run our test in the terminal run the command
 <br>
+```python3
+python3 test.py
+```
+<br>
+
+![passing](https://user-images.githubusercontent.com/24584526/266596099-41a9bc01-9679-4c20-a746-c0a8ffe3aecb.png)
+
+## Section 4: Using the unittest Framework
+<p>
+One of the key advantages of Python is its extensive ecosystem of libraries and frameworks that simplify various aspects of software development. In the context of testing, Python's built-in unittest framework offers a comprehensive solution for writing and executing test cases. Using unittest, you can efficiently organize your tests, make assertions about your code's behavior, and generate detailed test reports. This section demonstrates how to harness the power of unittest to create and run tests seamlessly.
+</p>
+
+Below is an example of how to create and run tests using the unittest framework. We'll use a test file named unittest_test.py for demonstration:
+
+```python3
+import unittest
+from main import is_palindrome  # Import the function to be tested
+
+# Create a test class that inherits from unittest.TestCase
+class TestPalindrome(unittest.TestCase):
+
+    # Test whether is_palindrome correctly identifies a palindrome
+    def test_is_palindrome_positive(self):
+        self.assertEqual(is_palindrome("racecar"), True)
+
+    # Test whether is_palindrome correctly identifies a non-palindrome
+    def test_is_palindrome_negative(self):
+        self.assertEqual(is_palindrome("hello"), False)
+
+    # Test whether is_palindrome correctly handles palindromes with spaces
+    def test_is_palindrome_with_spaces(self):
+        self.assertEqual(is_palindrome("A man a plan a canal Panama"), True)
+
+    # Test whether is_palindrome correctly handles an empty string
+    def test_is_palindrome_empty_string(self):
+        self.assertEqual(is_palindrome(""), True)
+
+    # Another way to assert True for palindrome
+    def test_is_palindrome_passes(self):
+        self.assertTrue(is_palindrome("racecar"))
+
+    # Another way to assert False for non-palindrome
+    def test_is_palindrome_fails(self):
+        self.assertFalse(is_palindrome("hello"))
+
+    # Another way to assert True for palindrome with spaces
+    def test_is_palindrome_with_spaces_in_word(self):
+        self.assertTrue(is_palindrome("A man a plan a canal Panama"))
+
+    # Another way to assert True for an empty string
+    def test_is_palindrome_empty_string_nothing(self):
+        self.assertTrue(is_palindrome(""))
+
+    # Test input validation: Ensure is_palindrome raises a ValueError for non-string input
+    def test_input_not_string(self):
+        with self.assertRaises(ValueError):
+            is_palindrome(123)  # Passing an integer, should raise ValueError
+
+# If this script is run as the main program, execute the tests
+if __name__ == '__main__':
+    unittest.main()
+```
+
+**Explanation:**
+<br>
+In this section, we demonstrate how to use the unittest framework to create and run tests for the is_palindrome function. Here's a breakdown of the key components:
+
+* Test Class: We create a test class TestPalindrome that inherits from unittest.TestCase. Each test method is a Python function within this class.
+
+* Test Methods: Each test method is named with a prefix test_ and is responsible for testing a specific aspect of the is_palindrome function. We use various assert methods provided by unittest.TestCase to make assertions about the function's behavior.
+
+* Test Input Validation: We also test input validation by using self.assertRaises to ensure that the function raises a ValueError when given non-string input (e.g., an integer).
+
+* Test Runner: The script checks if it is being run as the main program (if __name__ == '__main__':) and, if so, executes the tests using unittest.main().
+
+To run the tests in the unittest_test.py file, execute the following command in the shell:
+```python3
+python3 -m unittest_test.py
+```
+This command uses the unittest test discovery mechanism to find and run the tests in the specified file.
+
+<br>
+
+![unittest_pass](https://user-images.githubusercontent.com/24584526/266599960-2b16ecc9-9b7e-4c5f-ab3d-01b43d705300.png)
+
