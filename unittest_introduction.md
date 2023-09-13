@@ -204,17 +204,17 @@ if __name__ == "__main__":
     print(f"Tests Failed: {test_case.failed}")
 ```
 
-1. Custom Testing Framework Components Import: In this section, we import the custom testing framework components you've built. These components include TestCase and TestRunner from the unittest_demo module. Additionally, we import the is_palindrome function from a module named main.py, which presumably contains your application code to be tested.
+1. **Custom Testing Framework Components Import:** In this section, we import the custom testing framework components you've built. These components include TestCase and TestRunner from the unittest_demo module. Additionally, we import the is_palindrome function from a module named main.py, which presumably contains your application code to be tested.
 
-2. Define Test Case Class: We define a custom test case class called TestIsPalindrome that inherits from your TestCase class. This custom test case class contains individual test methods, each beginning with the prefix "test_". These test methods contain various assertions to test different aspects of the is_palindrome function.
+2. **Define Test Case Class:** We define a custom test case class called TestIsPalindrome that inherits from your TestCase class. This custom test case class contains individual test methods, each beginning with the prefix "test_". These test methods contain various assertions to test different aspects of the is_palindrome function.
 
-3. Main Program Check: The if __name__ == "__main__": block ensures that the code within it is only executed if the script is run as the main program (not when it's imported as a module).
+3. **Main Program Check:** The if __name__ == "__main__": block ensures that the code within it is only executed if the script is run as the main program (not when it's imported as a module).
 
-4. Test Runner and Test Case Creation: We create instances of the TestRunner and TestIsPalindrome classes. The TestRunner is responsible for executing the test methods in the test case.
+4. **Test Runner and Test Case Creation:** We create instances of the TestRunner and TestIsPalindrome classes. The TestRunner is responsible for executing the test methods in the test case.
 
-5. Run Tests: We use test_runner.run(test_case) to run all the test methods within the TestIsPalindrome test case.
+5. **Run Tests:** We use test_runner.run(test_case) to run all the test methods within the TestIsPalindrome test case.
 
-6. Print Test Results: Finally, we print the number of tests that passed and failed to provide feedback to the user.
+6. **Print Test Results:** Finally, we print the number of tests that passed and failed to provide feedback to the user.
 
 Now we can run our test in the terminal run the command:
 <br>
@@ -281,8 +281,6 @@ In this section, we demonstrate how to use the unittest framework to create and 
 
 * **Test Methods:** Each test method is named with a prefix test_ and is responsible for testing a specific aspect of the is_palindrome function. We use various assert methods provided by unittest.TestCase to make assertions about the function's behavior.
 
-* **Test Input Validation:** We also test input validation by using self.assertRaises to ensure that the function raises a ValueError when given non-string input (e.g., an integer).
-
 To run the tests in the unittest_test.py file, execute the following command in the shell:
 ```python3
 python3 -m unittest_test.py
@@ -335,6 +333,7 @@ This command tells coverage to run your tests with the -m unittest flag.
 ![coverage_pass](https://user-images.githubusercontent.com/24584526/267593988-481ffe23-da44-49ec-af4c-a91b8b20f846.png)
 
 Awesome! All of our test are passing
+<br>
 <br>
 **Step 4: Generating A Coverage Report**<br>
 After running your tests, you can generate a coverage report by running the command:
