@@ -5,7 +5,7 @@ In this bonus section, we'll explore how to set up Continuous Integration (CI) a
 
 1. Create A Github Actions Workflow
 
-* In your GitHub repository, create a new directory named .github/workflows.
+* In your GitHub repository, create a new directory named **.github/workflows**.
 
 * Inside the .github/workflows directory, create a YAML file (e.g., ci_cd.yml) for defining your GitHub Actions workflow.
 
