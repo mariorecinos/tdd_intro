@@ -413,3 +413,7 @@ Use code coverage as a tool to guide your testing efforts, identify areas that n
 <p>
 By using unittest, you can benefit from a well-established testing framework without having to build your testing infrastructure from scratch, as shown in the earlier sections. This approach provides consistency and makes it easier to collaborate with others who are familiar with standard testing practices in Python.
 </p>
+
+<br>
+
+[Bonus: Implementing CI/CD with GitHub Actions](https://github.com/mariorecinos/tdd_intro/blob/main/ci_cd_intro_github_actions.md)
