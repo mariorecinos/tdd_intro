@@ -49,4 +49,4 @@ jobs:
 This workflow does the following:
 
 * It triggers on every push to the main branch.
-* It sets up a Python environment, installs project dependencies, and runs the tests.
+* It sets up a Python environment, installs project dependencies, and runs the tests. Change
