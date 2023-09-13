@@ -1,0 +1,37 @@
+name: Python CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+
+    - name: Run tests
+      run: python -m unittest unittest_test.py
+
+    - name: Install Coverage Package
+      run: pip install coverage
+
+    - name: Run tests and generate coverage report
+      run: |
+        python -m unittest unittest_test.py
+        coverage run -m unittest unittest_test.py
+        coverage report -m
+
+    - name: Check test results and prevent push on failure
+      run: |
+        if [ ${{ job.status }} == "failure" ]; then
+          echo "Tests failed. Preventing code push."
+          exit 1
+        fi
