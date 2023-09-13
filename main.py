@@ -60,12 +60,12 @@ def is_palindrome(input_string):
 # and returns a pass/fail indication based on the result.
 # If the string is a palindrome, returns "Test Passed ✅",
 
-def test_palindrome(input_string, expected_result):
-    result = is_palindrome(input_string)
-    if result == expected_result:
-        return "Test Passed ✅"
-    else:
-        return "Test Failed ❌"
+# def test_palindrome(input_string, expected_result):
+#     result = is_palindrome(input_string)
+#     if result == expected_result:
+#         return "Test Passed ✅"
+#     else:
+#         return "Test Failed ❌"
 
 # Check if a valid palindrome is identified correctly
 # print(test_palindrome("racecar", True))  # Should print "Test Passed ✅"

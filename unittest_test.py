@@ -36,6 +36,3 @@ class TestPalindrome(unittest.TestCase):
         # Test that is_palindrome raises a ValueError when input is not a string
         with self.assertRaises(ValueError):
             is_palindrome(123)  # Passing an integer, should raise ValueError
-
-if __name__ == '__main__':
-    unittest.main()
