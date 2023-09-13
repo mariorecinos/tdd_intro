@@ -29,14 +29,18 @@ jobs:
 
     - name: Set up Python
       uses: actions/setup-python@v2
-      with:
-        python-version: 3.x  # Choose your Python version
-
-    - name: Install dependencies
-      run: pip install -r requirements.txt
 
     - name: Run tests
       run: python -m unittest unittest_test.py
+
+    - name: Install Coverage Package
+      run: pip install coverage
+
+    - name: Run tests and generate coverage report
+      run: |
+        python -m unittest unittest_test.py
+        coverage run -m unittest unittest_test.py
+        coverage report -m
 
     - name: Check test results and prevent push on failure
       run: |
@@ -49,4 +53,4 @@ jobs:
 This workflow does the following:
 
 * It triggers on every push to the main branch.
-* It sets up a Python environment, installs project dependencies, and runs the tests. Change
+* It sets up a Python environment, installs project dependencies, and runs the tests.
