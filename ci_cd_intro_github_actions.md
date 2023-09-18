@@ -154,10 +154,30 @@ jobs:
         fi
 ```
 
-This workflow does the following:
+### Explanation in detail
+<p>
+This GitHub Actions workflow is designed for Continuous Integration and Continuous Deployment (CI/CD) of a Python project. It runs on every pull request to the main branch. The primary job, named "build," is executed on an Ubuntu virtual machine, specifically "ubuntu-latest." The workflow consists of several steps, each with a specific purpose:
+</p>
 
-* It triggers on every pull request to the main branch.
-* It sets up a Python environment, installs project dependencies, and runs the tests.
+* **Checkout code:** This step fetches the code from the repository.
+* **Set up Python:** It sets up the Python environment using the actions/setup-python@v2 action.
+* **Run tests:** This step executes Python unit tests using python -m unittest unittest_test.py.
+* **Install Coverage Package:** It installs the coverage package required for code coverage analysis.
+* **Run tests and generate coverage report:** This multi-line script runs the tests again with coverage analysis and generates a coverage report using the coverage tool.
+* **Check test results and prevent push on failure:** Finally, this step checks the job status. If the tests fail (status is "failure"), it prints an error message and prevents code push.
+
+### Key Components:
+
+* **name:** The name of the GitHub Actions workflow, "Python CI/CD" in this case.
+* **on:** Specifies the trigger event for the workflow, which is "pull_request" to the "main" branch.
+* **jobs:** Defines one or more jobs to be executed within the workflow.
+* **build:** The name of the job defined within the "jobs" section.
+* **runs-on:** Specifies the type of runner environment, which is "ubuntu-latest" (an Ubuntu-based virtual machine) in this case.
+* **steps:** Lists the individual steps to be executed within the job.
+* **uses:** Specifies the GitHub Action to be used for a particular step, like "actions/checkout@v2" for code checkout.
+* **run:** Contains the command(s) or script to be executed within a step.
+
+
 
 ## Adding Branch Protection Rules
 
@@ -168,6 +188,8 @@ To ensure that code is only merged into the main branch after passing tests, you
 Navigate to your repository on GitHub.
 
 * Click on the "Settings" tab at the top-right corner of your repository.
+
+![passing](https://user-images.githubusercontent.com/24584526/266596099-41a9bc01-9679-4c20-a746-c0a8ffe3aecb.png)
 
 * In the left sidebar, click on "Branches."
 
