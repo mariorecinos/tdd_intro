@@ -155,3 +155,8 @@ This workflow does the following:
 
 * It triggers on every pull request to the main branch.
 * It sets up a Python environment, installs project dependencies, and runs the tests.
+
+2. Commit and Push to Trigger CI/CD
+
+* Commit the .github/workflows/main.yml file to your repository.
+* Push the changes to your GitHub repository's testing branch.
