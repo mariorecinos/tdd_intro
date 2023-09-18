@@ -416,4 +416,4 @@ By using unittest, you can benefit from a well-established testing framework wit
 
 <br>
 
-[Bonus: Implementing CI/CD with GitHub Actions](https://github.com/mariorecinos/tdd_intro/blob/main/ci_cd_intro_github_actions.md)
+[Implementing CI/CD with GitHub Actions](https://github.com/mariorecinos/tdd_intro/blob/main/ci_cd_intro_github_actions.md)
