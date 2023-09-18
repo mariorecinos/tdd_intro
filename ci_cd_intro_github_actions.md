@@ -156,6 +156,30 @@ This workflow does the following:
 * It triggers on every pull request to the main branch.
 * It sets up a Python environment, installs project dependencies, and runs the tests.
 
+## Adding Branch Protection Rules
+
+<p>
+To ensure that code is only merged into the main branch after passing tests, you can set up branch protection rules in your GitHub repository. This ensures that pull requests are reviewed and that required status checks pass before merging. Here are the steps to add branch protection rules:
+</p>
+
+Navigate to your repository on GitHub.
+
+* Click on the "Settings" tab at the top-right corner of your repository.
+
+* In the left sidebar, click on "Branches."
+
+* In the "Branch name pattern" field, enter the name of the branch you want to protect, typically "main."
+
+* Scroll down to the "Protected branches" section.
+
+* Check the box next to "Require pull request before merging." This ensures that pull requests must be reviewed and approved before merging.
+
+* Check the box next to "Require status checks to pass before merging" This is crucial for ensuring that tests pass before code can be merged into the branch.
+
+* After configuring the desired settings, click the "Save changes" button to apply the branch protection rules.
+
+With these branch protection rules in place, pull requests to the main branch will only be mergeable if they meet the specified criteria, including passing the required status checks (tests).
+
 2. Commit and Push to Trigger CI/CD
 
 * Commit the .github/workflows/main.yml file to your repository.
@@ -164,4 +188,10 @@ This workflow does the following:
 3. Observe CI/CD Workflow
 
 * Go to the "Actions" tab in your GitHub repository to view the status of your CI/CD workflow.
-* GitHub Actions will automatically run your tests whenever there's a pull request to the main branch.
+* GitHub Actions will automatically run your tests whenever there's a pull request to the main branch. ensuring that any changes do not introduce regressions.
+* You can easily collaborate with others on your project while maintaining code quality.
+* Successful CI/CD workflows can be extended to include deployment steps, such as deploying to a production server or publishing packages.
+
+<p>
+By implementing CI/CD with GitHub Actions, you enhance your development process by automating repetitive tasks and promoting code quality, making your project more robust and reliable.
+</p>
