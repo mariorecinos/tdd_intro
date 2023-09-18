@@ -189,7 +189,8 @@ Navigate to your repository on GitHub.
 
 * Click on the "Settings" tab at the top-right corner of your repository.
 
-![passing](https://user-images.githubusercontent.com/24584526/266596099-41a9bc01-9679-4c20-a746-c0a8ffe3aecb.png)
+![branches](https://user-images.githubusercontent.com/24584526/268679475-8c003068-5dcd-4d90-b90a-ea099c5f5b7c.png)
+
 
 * In the left sidebar, click on "Branches."
 
