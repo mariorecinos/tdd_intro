@@ -7,7 +7,7 @@ from main import is_palindrome
 class TestPalindrome(unittest.TestCase):
 
     def test_is_palindrome_positive(self):
-        self.assertEqual(is_palindrome("racecar"), True)
+        self.assertEqual(is_palindrome("racecarw"), True)
 
     def test_is_palindrome_negative(self):
         self.assertEqual(is_palindrome("hello"), False)
