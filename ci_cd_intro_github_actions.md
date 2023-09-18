@@ -160,3 +160,8 @@ This workflow does the following:
 
 * Commit the .github/workflows/main.yml file to your repository.
 * Push the changes to your GitHub repository's testing branch.
+
+3. Observe CI/CD Workflow
+
+* Go to the "Actions" tab in your GitHub repository to view the status of your CI/CD workflow.
+* GitHub Actions will automatically run your tests whenever there's a pull request to the main branch.
