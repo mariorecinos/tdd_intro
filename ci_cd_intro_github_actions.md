@@ -117,7 +117,10 @@ Here's a basic example of a GitHub Actions workflow for Python:
 ```python3
 name: Python CI/CD
 
-on: pull_request
+on:
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
