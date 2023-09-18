@@ -8,6 +8,13 @@ In this chapter, we'll refactor our testing code to build a custom testing frame
 
 Let's start by creating a ***TestCase** class that defines the structure for our individual test cases. Each test case should have a method representing a specific test.
 
+create a new file unittest_demo.py
+
+```python3
+touch unittest_demo.py
+```
+***our code***
+
 ```python3
 class TestCase:
      # __init__(self) This method is the constructor of the TestCase class.
