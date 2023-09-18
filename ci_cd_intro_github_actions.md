@@ -92,9 +92,26 @@ In this lesson, we're using a **.yml** configuration file to define a GitHub Act
 
 1. Create A Github Actions Workflow
 
+* create a new branch called testing we will use this branch to send a pull request to our main branch.
+
+you can do so by running the command:
+```python3
+git checkout -b testing
+```
+
 * In your GitHub repository, create a new directory named **.github/workflows**.
 
-* Inside the .github/workflows directory, create a YAML file (e.g., ci_cd.yml) for defining your GitHub Actions workflow.
+make a directory using the command:
+```python3
+mkdir .github/workflows
+```
+
+* Inside the .github/workflows directory, create a YAML file (e.g., main.yml) for defining your GitHub Actions workflow.
+
+run the command in your terminal:
+```python3
+touch .github/workflows/main.yml
+```
 
 Here's a basic example of a GitHub Actions workflow for Python:
 ```python3
@@ -136,5 +153,5 @@ jobs:
 
 This workflow does the following:
 
-* It triggers on every push to the main branch.
+* It triggers on every pull request to the main branch.
 * It sets up a Python environment, installs project dependencies, and runs the tests.
