@@ -160,3 +160,5 @@ This workflow does the following:
 
 * Commit the .github/workflows/main.yml file to your repository.
 * Push the changes to your GitHub repository's testing branch.
+
+3. Observe CI/CD Workflow
