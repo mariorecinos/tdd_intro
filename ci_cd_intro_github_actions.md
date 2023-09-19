@@ -90,7 +90,7 @@ In this lesson, we're using a **.yml** configuration file to define a GitHub Act
 
 </P>
 
-1. Create A Github Actions Workflow
+1. **Create A Github Actions Workflow**
 
 * create a new branch called testing we will use this branch to send a pull request to our main branch.
 
@@ -202,19 +202,112 @@ Navigate to your repository on GitHub.
 
 * Check the box next to "Require status checks to pass before merging" This is crucial for ensuring that tests pass before code can be merged into the branch.
 
+![branch_protection](https://user-images.githubusercontent.com/24584526/268853361-21b41c01-bfbd-400d-b990-4f8d60c54f41.png)
+
+
 * After configuring the desired settings, click the "Save changes" button to apply the branch protection rules.
 
 With these branch protection rules in place, pull requests to the main branch will only be mergeable if they meet the specified criteria, including passing the required status checks (tests).
 
-2. Commit and Push to Trigger CI/CD
+2. **Create a pull request**
 
-* Commit the .github/workflows/main.yml file to your repository.
-* Push the changes to your GitHub repository's testing branch.
+* First, make sure your local code changes are committed using Git.
+* Commit your changes to the testing branch:
+```python3
+git add .
+git commit -m "Your commit message here"
+```
+* Push the branch to the remote repository on GitHub:
 
-3. Observe CI/CD Workflow
+ **Open GitHub Repository:**
+ * **Open GitHub Repository:** Go to your GitHub repository's page in a web browser.
+ * **Create a New Pull Request:** Click on the "Pull Requests" tab in the repository's menu.
+ * **Click on "New Pull Request":** You'll find a green button labeled "New Pull Request." Click on it.
+
+
+![pull_request](https://user-images.githubusercontent.com/24584526/268854097-0ce27934-6997-4502-9ca2-c3cb753f8625.png)
+
+* **Compare Base and Compare Branch:** In the "Open a pull request" page, you'll see two drop-down menus:
+* **Base repository:** This is usually the repository you forked or cloned.
+* **Base:** Select "main" from the list.
+* **Compare repository:** This is your repository.
+* **Compare:** Select "testing" from the list.
+* This setup means you want to merge the changes from the "testing" branch (your changes) into the "main" branch (the base branch).
+
+![testing_pull](https://user-images.githubusercontent.com/24584526/268854215-18ed6a18-045d-489d-b2db-32947bda5c73.png)
+
+* **Review Changes:** GitHub will automatically compare the changes between the two branches.
+Review the changes to ensure they are correct.
+* **Create Pull Request:** Click the "Create pull request" button.
+* **Provide Pull Request Details:** Give your pull request a meaningful title and description to explain the changes you made.
+* **Create Pull Request:**
+Click the "Create pull request" button again.
+
+![create_pull](https://user-images.githubusercontent.com/24584526/268854363-d7fc9996-c871-4075-a132-279136eaee96.png)
+
+* **Review and Merge (CI/CD Testing):**
+* When you create the pull request, GitHub will automatically trigger your CI/CD workflow (in this case, named "Python CI/CD") to run tests on the changes you made. You'll see a status like "Python CI/CD build (pull request) in progress" indicating that the CI/CD check has started.
+
+* Wait for the CI/CD checks to complete. Your automated tests will run to verify that the changes do not introduce errors or break existing functionality.
+
+![test_pending](https://user-images.githubusercontent.com/24584526/268854695-53cc404b-9e16-49c5-8648-4482d472dffc.png)
+
+* If the CI/CD check passes successfully, you'll see a notification that says "All checks have passed." This means your code changes have passed the automated tests, and it's safe to proceed with the merge.
+
+* You can then click the "Merge pull request" button with confidence, knowing that your code changes have been thoroughly tested and validated.
+
+![test_passed](https://user-images.githubusercontent.com/24584526/268855121-288cbee2-e674-4b46-b7d6-686faffcb21d.png)
+
+![merge_success](https://user-images.githubusercontent.com/24584526/268855592-cb643d21-97a1-4567-9653-ef288b3ed3e5.png)
+
+* **Observe CI/CD Workflow**
 
 * Go to the "Actions" tab in your GitHub repository to view the status of your CI/CD workflow.
+
+
+![review_action](https://user-images.githubusercontent.com/24584526/268896575-783ddfd2-0c72-4c0b-acb1-9aefc7157d86.png)
+
+![action](https://user-images.githubusercontent.com/24584526/268897035-0e66deb5-3032-4252-a99f-ae7f3e463c15.png)
+
 * GitHub Actions will automatically run your tests whenever there's a pull request to the main branch. ensuring that any changes do not introduce regressions.
+
+![jobs_review](https://user-images.githubusercontent.com/24584526/268897630-8996019d-4fc9-4705-81b9-9acdd19b0cd0.png)
+
+![rerun_jobs](https://user-images.githubusercontent.com/24584526/268897960-d321de85-2455-4d62-ac71-37cac138f2a6.png)
+
+![queued](https://user-images.githubusercontent.com/24584526/268898182-77328b37-aa52-49db-8f06-8862763420d0.png)
+
+![in_progress](https://user-images.githubusercontent.com/24584526/268898520-e04754c2-5069-4c27-b621-cde44e58b7f3.png)
+
+![success](https://user-images.githubusercontent.com/24584526/268898704-afeb89bd-cb3a-4c6b-826c-e161122dee30.png)
+
+![first_review](https://user-images.githubusercontent.com/24584526/268898932-c2ccf36c-43f1-4ef3-af7e-1be7a931fb21.png)
+
+![second_review](https://user-images.githubusercontent.com/24584526/268899089-42d6c0da-59a0-4fcf-b9e8-bff8c2dfe2cb.png)
+
+![third_review](https://user-images.githubusercontent.com/24584526/268899234-73b6ad6c-6b23-4593-b283-de2fe13637fc.png)
+
+![coverage_report](https://user-images.githubusercontent.com/24584526/268899904-caaa1591-718d-4bd2-9303-5007aec86711.png)
+
+
+![fourth_review](https://user-images.githubusercontent.com/24584526/268900062-bdfcc787-334b-4e58-862c-f6484f2f3487.png)
+
+Let's go ahead and see what happens when a test fails.
+
+![failing_test](https://user-images.githubusercontent.com/24584526/268900485-b926e7a6-a9d7-427f-8e10-4e77e205cbcf.png)
+
+![fail_review](https://user-images.githubusercontent.com/24584526/268900658-6b2784b4-6036-404d-ac0e-c086944b4977.png)
+
+![fix_fail](https://user-images.githubusercontent.com/24584526/268900804-428ef039-ce68-45b4-803e-301355fee8b5.png)
+
+![fail_pass](https://user-images.githubusercontent.com/24584526/268900954-97fafc1a-13c2-441a-b7de-5fc4bf045876.png)
+
+
+![fix_merged](https://user-images.githubusercontent.com/24584526/268901122-b2ea4907-ac2d-4c3e-bf9f-87240fc03b2a.png)
+
+![review_actions](https://user-images.githubusercontent.com/24584526/268901385-fb48fd12-5193-473c-9e25-f870d7c37519.png)
+
+
 * You can easily collaborate with others on your project while maintaining code quality.
 * Successful CI/CD workflows can be extended to include deployment steps, such as deploying to a production server or publishing packages.
 
