@@ -377,6 +377,16 @@ In this code:
 * Inside the loop, we compare characters at the current positions of the pointers. If they are not equal, we return ***False***.
 * If the loop completes without returning ***False***, it means the string is a palindrome, and we return ***True***.
 
+Now let's go ahead and run our test:
+```python3
+python3 main.py
+```
+Our test should all pass.
+
+![is_palindrome_pass](https://user-images.githubusercontent.com/24584526/269374862-96ea9654-7588-49ee-91f4-4506d7b14101.png)
+
+
+
 <p>
   In this lesson, we've explored the power of Test-Driven Development (TDD) as a systematic approach to writing code that ensures its correctness and reliability. By writing tests first and then implementing the code, we've seen how TDD can guide our development process. As our projects grow and we add more features, our codebase becomes more complex. To maintain sanity and ensure thorough testing, it's crucial to separate our tests into dedicated test files. In our next lesson, we will introduce the concept of testing frameworks like unittest, which will provide us with organized classes and methods for even more effective testing.
 </p>

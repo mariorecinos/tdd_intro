@@ -31,10 +31,9 @@
 
 def is_palindrome(input_string):
   # Check if input_string is a string using isInstance method built in python https://www.w3schools.com/python/ref_func_isinstance.asp
-    if not isinstance(input_string, str):
-        raise ValueError("Input must be a string")
+    if isinstance(input_string, str):
     # Remove spaces and convert to lowercase
-    cleaned_string = ''.join(input_string.split()).lower()
+        cleaned_string = ''.join(input_string.split()).lower()
 
     # Initialize pointers
     # our left pointer begins at 0 so that when we access the index of our string
@@ -42,42 +41,64 @@ def is_palindrome(input_string):
     # our right pointer will begin at the end entering the value of right pointer inside of [] will access the index of that letter value
     # then we will compare the two values to each other if they are equal if they are the left pointer will increase by one moving the next character
     #  while our right pointer will decrease by one moving down to the next value and the comparison will continue until left pointer is no longer less than right pointer
-    left_pointer = 0
-    right_pointer = len(cleaned_string) - 1
+        left_pointer = 0
+        right_pointer = len(cleaned_string) - 1
 
     # Loop until pointers meet
-    while left_pointer < right_pointer:
-        if cleaned_string[left_pointer] != cleaned_string[right_pointer]:
-            return False
-        left_pointer += 1
-        right_pointer -= 1
+        while left_pointer < right_pointer:
+            if cleaned_string[left_pointer] != cleaned_string[right_pointer]:
+                return False
+            left_pointer += 1
+            right_pointer -= 1
 
     # If the loop completes, it's a palindrome
-    return True
+            return True
+
+    else:
+        raise ValueError("input is not a string")
 
 # Function to test if a given string is a palindrome.
 # Takes an input string, checks if it is a palindrome using the is_palindrome function,
 # and returns a pass/fail indication based on the result.
 # If the string is a palindrome, returns "Test Passed ✅",
 
-# def test_palindrome(input_string, expected_result):
-#     result = is_palindrome(input_string)
-#     if result == expected_result:
-#         return "Test Passed ✅"
-#     else:
-#         return "Test Failed ❌"
+def test_palindrome(input_string, expected_result):
+    print("##########################")
+    print("Beginning is_palindrome test")
+    print("\n")
+
+     # check if is_palindrome is a function
+    result = callable(is_palindrome)
+    if result == True:
+        print("✅ is_palindrome exists")
+    else:
+        print("🛑 is_palindrome does not exist")
+
+    test_result = is_palindrome(input_string)
+    if test_result == expected_result:
+        print(f"Test Passed is_palindrome is returning {expected_result} ✅")
+    else:
+        print(f"Test Failed is_palindrome is not returning expected result {expected_result} ❌")
+
+     # check if is_palindrome throws an error if string is not provided
+    try:
+        is_palindrome(3)
+        print("🛑 is_palindrome does not raise the proper exception")
+    except Exception as e:
+        print(f"✅ is_palindrome raised the following exception: {e}")
+
+    print("\n")
+    print("Ending is_palindrome test")
+    print("##########################")
 
 # Check if a valid palindrome is identified correctly
-# print(test_palindrome("racecar", True))  # Should print "Test Passed ✅"
+test_palindrome("racecar", True)  # Should print "Test Passed ✅"
 
 # Check if a valid palindrome with spaces is identified correctly
-# print(test_palindrome("A man a plan a canal Panama", True))  # Should print "Test Passed ✅"
+test_palindrome("A man a plan a canal Panama", True)  # Should print "Test Passed ✅"
 
 # Check if a non-palindrome is identified correctly
-# print(test_palindrome("hello", False))  # Should print "Test Passed ✅"
-
-# Check if invalid input raises a ValueError
-# print(test_palindrome(123, False))  # Should print raise ValueError("Input must be a string") ValueError: Input must be a string
+test_palindrome("hello", False)  # Should print "Test Passed ✅"
 
 
 # def test_add(num1, num2, expected_result):
