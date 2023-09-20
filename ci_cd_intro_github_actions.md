@@ -212,12 +212,23 @@ With these branch protection rules in place, pull requests to the main branch wi
 2. **Create a pull request**
 
 * First, make sure your local code changes are committed using Git.
-* Commit your changes to the testing branch:
+
+> stage your changes
+
 ```python3
-git add .
+git add -A
+```
+
+> Commit your changes to the testing branch:
+```python3
 git commit -m "Your commit message here"
 ```
-* Push the branch to the remote repository on GitHub:
+
+> Push to the testing branch to the remote repository on GitHub:
+
+```python3
+git push -u origin testing
+```
 
  **Open GitHub Repository:**
  * **Open GitHub Repository:** Go to your GitHub repository's page in a web browser.
@@ -264,8 +275,9 @@ Click the "Create pull request" button again.
 
 * Go to the "Actions" tab in your GitHub repository to view the status of your CI/CD workflow.
 
-
 ![review_action](https://user-images.githubusercontent.com/24584526/268896575-783ddfd2-0c72-4c0b-acb1-9aefc7157d86.png)
+
+* 
 
 ![action](https://user-images.githubusercontent.com/24584526/268897035-0e66deb5-3032-4252-a99f-ae7f3e463c15.png)
 
